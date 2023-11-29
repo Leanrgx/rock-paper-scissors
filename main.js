@@ -42,6 +42,7 @@ function playRound (){
         playRound();
     } else {
         alert ("You didn't chose one of the options!");
+        playRound();
     }
 }
 
