@@ -1,6 +1,8 @@
 //Get computer choice
 
-let options = ['Rock', 'Paper', 'Scissors']
+const options = ['Rock', 'Paper', 'Scissors'];
+let userScore = 0;
+let computerScore = 0;
 
 function getComputerChoice(){
     return computerChoice = options[Math.floor(Math.random() * options.length)];
@@ -26,19 +28,34 @@ function playRound (){
     if (realUserChoice === "Rock" && computerChoice === "Paper"
     || realUserChoice === "Paper" && computerChoice === "Scissors"
     || realUserChoice === "Scissors" && computerChoice === "Rock"){
-        confirm("You lost! Do you want to try again?") ? playRound() : alert("Okay, goodbye");
+        alert("You lost!");
+        computerScore++
+        alert ("Our current score is " + userScore + " to " + computerScore);
     } else if (realUserChoice === "Rock" && computerChoice === "Scissors"
     || realUserChoice === "Paper" && computerChoice === "Rock"
     || realUserChoice === "Scissors" && computerChoice === "Paper"){
-        confirm("You won! Do you want to try again?") ? playRound() : alert("Okay, goodbye");
+        alert("You won!");
+        userScore++
+        alert ("Our current score is " + userScore + " to " + computerScore);
     } else if (realUserChoice === computerChoice) {
-        confirm("We tied! Do you want to try again?") ? playRound() : alert("Okay, goodbye");
+        alert("We tied! Let's try again");
+        playRound();
     } else {
-        alert ("You didn't chose one of the options!")
+        alert ("You didn't chose one of the options!");
     }
 }
 
-playRound();
+for (i = 0; i < 5; i++){
+    playRound();
+    if (userScore === 3){
+        alert("You have won 3 out of 5 games. Good job!");
+        confirm("Do you want to play again?") ? playRound () : alert ("Okay, it was fun, goodbye!");
+        break;
+    } else if (computerScore === 3){
+        alert("You have lost 3 out of 5 games. Better luck next time!");
+        confirm("Do you want to play again?") ? playRound () : alert ("Okay, it was fun, goodbye!");
+        break;
+    }
+}
 
-// start game again
 
