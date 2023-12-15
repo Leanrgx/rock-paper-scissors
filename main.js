@@ -1,5 +1,3 @@
-//Get computer choice
-
 const options = ['Rock', 'Paper', 'Scissors'];
 let userScore = 0;
 let computerScore = 0;
@@ -8,19 +6,11 @@ function getComputerChoice(){
     return computerChoice = options[Math.floor(Math.random() * options.length)];
 }
 
-//get user choice
-
 function getUserChoice (){
     let userChoice = prompt("Rock, Paper, or Scissors?", "");
     let lowCase = userChoice.toLowerCase();
     return realUserChoice = lowCase.charAt(0).toUpperCase() + lowCase.slice(1); 
 }
-
-//compare user choice to computer choice
-// if user choice beats computer choice
-    //user wins
-    // else if computer beats user
-    // game over
 
 function playRound (){
     alert("You chose " + getUserChoice());
